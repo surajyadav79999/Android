@@ -1,0 +1,182 @@
+myapplication.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="67dp"
+        android:text="SURAJ YADAV" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="153dp"
+        android:text="firstNumber" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="232dp"
+        android:text="secondNumber" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="137dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="222dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="312dp"
+        android:text="Result" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="291dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginBottom="98dp"
+        android:text="Multi" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginBottom="103dp"
+        android:text="Divi" />
+
+
+</RelativeLayout>
+
+
+myapplication.java
+
+package com.example.myapplication;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+    EditText firstNumber;
+    EditText secondNumber;
+    EditText addResult;
+    Button btnMulti;
+    Button btnDiv;
+
+    double num1, num2, sum,sum2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        firstNumber = (EditText) findViewById(R.id.editText3);
+        secondNumber = (EditText) findViewById(R.id.editText2);
+        addResult = (EditText) findViewById(R.id.editText4);
+        btnMulti = (Button) findViewById(R.id.button);
+        btnDiv = (Button) findViewById(R.id.button2);
+
+        btnMulti.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                num1 = Double.parseDouble(firstNumber.getText().toString());
+                num2 = Double.parseDouble(secondNumber.getText().toString());
+                sum = num1 * num2;
+                addResult.setText(Double.toString(sum));
+            }
+
+
+
+        });
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                num1 = Double.parseDouble(firstNumber.getText().toString());
+                num2 = Double.parseDouble(secondNumber.getText().toString());
+                sum2 = num1 / num2;
+                addResult.setText(Double.toString(sum2));
+            }
+
+
+
+        }
+        );
+    }
+}
