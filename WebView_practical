@@ -1,0 +1,47 @@
+.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="115dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="153dp" />
+</RelativeLayout>
+--------------------------------------------------------------------
+.java
+
+package com.example.webview;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.view.View;
+import android.webkit.WebView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        WebView mywebView=(WebView)findViewById(R.id.webview);
+        mywebView.loadUrl("https://www.facebook.com/");
+        String data="<html><body bg='Blue'><h1>SURAJ YADAV _ 5</h1></body></html>";
+        mywebView.loadData(data,"text/html","UTF-8");
+    }
+}
